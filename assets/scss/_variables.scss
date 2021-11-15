@@ -1,0 +1,27 @@
+@use 'sass:math';
+
+// Links
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+// Function
+@function rem($px) {
+  @return math.div($px, 16) * 1rem;
+}
+
+// colors
+$purple-light: #c86eed;
+$purple: #6e40cd;
+$purple-2: #6d40cd;
+$purple-3: #28164e;
+$purple-thick: #403063;
+$purple-dark: #070e28;
+$coal-light: #293152;
+$coal: #1c2239;
+$coal-dark: #151a2e;
+$navy-blue: #0b163e;
+$blue-grey: #262e4c;
+
+// fonts
+$roboto: "Roboto", sans-serif;
+$kumbh-sans: "Kumbh Sans", sans-serif;

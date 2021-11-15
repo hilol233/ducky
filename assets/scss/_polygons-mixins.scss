@@ -1,0 +1,586 @@
+@mixin animationMobile(
+  $pol1L: 0,
+  $pol1PadT: 0,
+  $pol2R: 0,
+  $pol2PadT: 0,
+  $pol3R: 0,
+  $pol3PadT: 0,
+  $pol4R: 0,
+  $pol4PadB: 0,
+  $pol5L: 0,
+  $pol5PadB: 0,
+  $display: flex,
+  $otherPolDisplay: none
+) {
+  .polygon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: $display;
+  }
+  .polygon-1 {
+    left: rem($pol1L);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: rem($pol1PadT);
+    animation: poly1 14s ease-in-out infinite;
+
+    @keyframes poly1 {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(rem(450));
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    img {
+      -webkit-animation: rotating1 4s ease-in-out infinite;
+      -moz-animation: rotating1 4s ease-in-out infinite;
+      -ms-animation: rotating1 4s ease-in-out infinite;
+      -o-animation: rotating1 4s ease-in-out infinite;
+      animation: rotating1 4s ease-in-out infinite;
+
+      @keyframes rotating1 {
+        0% {
+          -ms-transform: rotate(0deg);
+          -moz-transform: rotate(0deg);
+          -webkit-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: translateY(0) rotate(0deg);
+        }
+        40% {
+          transform: translateY(rem(-45)) rotate(144deg);
+        }
+        100% {
+          -ms-transform: rotate(360deg);
+          -moz-transform: rotate(360deg);
+          -webkit-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: translateY(0) rotate(360deg);
+        }
+      }
+    }
+  }
+  .polygon-2 {
+    right: rem($pol2R);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: $pol2PadT;
+    animation: poly2 7s ease-in-out infinite;
+
+    @keyframes poly2 {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(rem(-100));
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    img {
+      -webkit-animation: rotating2 4s ease-in-out infinite;
+      -moz-animation: rotating2 4s ease-in-out infinite;
+      -ms-animation: rotating2 4s ease-in-out infinite;
+      -o-animation: rotating2 4s ease-in-out infinite;
+      animation: rotating2 4s ease-in-out infinite;
+
+      @keyframes rotating2 {
+        0% {
+          transform: translateY(rem(0)) rotate(0deg);
+        }
+        50% {
+          transform: translateY(rem(40)) rotate(180deg);
+        }
+        100% {
+          transform: translateY(0) rotate(360deg);
+        }
+      }
+    }
+  }
+  .polygon-3 {
+    right: rem($pol3R);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: rem($pol3PadT);
+    animation: poly3 10s ease-in-out infinite;
+
+    @keyframes poly3 {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(rem(-500));
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    img {
+      -webkit-animation: rotating3 4s ease-in-out infinite;
+      -moz-animation: rotating3 4s ease-in-out infinite;
+      -ms-animation: rotating3 4s ease-in-out infinite;
+      -o-animation: rotating3 4s ease-in-out infinite;
+      animation: rotating3 4s ease-in-out infinite;
+
+      @keyframes rotating3 {
+        0% {
+          transform: translateY(rem(0)) rotate(0deg);
+        }
+        50% {
+          transform: translateY(rem(70)) rotate(180deg);
+        }
+        100% {
+          transform: translateY(0) rotate(360deg);
+        }
+      }
+    }
+  }
+  .polygon-4 {
+    right: rem($pol4R);
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: rem($pol4PadB);
+    animation: poly4 10s ease-in-out infinite;
+
+    @keyframes poly4 {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(rem(-350));
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    img {
+      -webkit-animation: rotating4 4s ease-in-out infinite;
+      -moz-animation: rotating4 4s ease-in-out infinite;
+      -ms-animation: rotating4 4s ease-in-out infinite;
+      -o-animation: rotating4 4s ease-in-out infinite;
+      animation: rotating4 4s ease-in-out infinite;
+
+      @keyframes rotating4 {
+        0% {
+          transform: translateY(rem(0)) rotate(0deg);
+        }
+        50% {
+          transform: translateY(rem(70)) rotate(180deg);
+        }
+        100% {
+          transform: translateY(0) rotate(360deg);
+        }
+      }
+    }
+  }
+  .polygon-5 {
+    left: rem($pol5L);
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: rem($pol5PadB);
+    animation: poly5 10s ease-in-out infinite;
+
+    @keyframes poly5 {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(rem(400));
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    img {
+      -webkit-animation: rotating5 4s linear infinite;
+      -moz-animation: rotating5 4s linear infinite;
+      -ms-animation: rotating5 4s linear infinite;
+      -o-animation: rotating5 4s linear infinite;
+      animation: rotating5 4s linear infinite;
+
+      @keyframes rotating5 {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(180deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+  .polygon-6 {
+    display: $otherPolDisplay;
+  }
+  .polygon-7 {
+    display: $otherPolDisplay;
+  }
+  .polygon-8 {
+    display: $otherPolDisplay;
+  }
+}
+
+@mixin animationPC(
+  $pol1L,
+  $pol1PadT,
+  $pol2R,
+  $pol2PadT,
+  $pol3R,
+  $pol3PadT,
+  $pol4R,
+  $pol4PadB,
+  $pol5L,
+  $pol5PadB,
+  // Extra
+    $pol6R,
+  $pol6PadT,
+  $pol7R,
+  $pol7PadT,
+  $pol8R,
+  $pol8PadB
+) {
+  .polygon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    
+  }
+
+  .polygon-1 {
+    left: rem($pol1L);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: rem($pol1PadT);
+    animation: poly1 24s ease-in-out infinite;
+
+    @keyframes poly1 {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(rem(1250));
+        // transform: translateX(rem(308.45));
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    img {
+      -webkit-animation: rotating1 4s ease-in-out infinite;
+      -moz-animation: rotating1 4s ease-in-out infinite;
+      -ms-animation: rotating1 4s ease-in-out infinite;
+      -o-animation: rotating1 4s ease-in-out infinite;
+      animation: rotating1 7s ease-in-out infinite;
+
+      @keyframes rotating1 {
+        0% {
+          -ms-transform: translateY(0) rotate(0deg);
+          -moz-transform: translateY(0) rotate(0deg);
+          -webkit-transform: translateY(0) rotate(0deg);
+          -o-transform: translateY(0) rotate(0deg);
+          transform: translateY(0) rotate(0deg);
+        }
+        40% {
+          transform: translateY(rem(400)) rotate(144deg);
+        }
+        100% {
+          -ms-transform: translateY(0) rotate(360deg);
+          -moz-transform: translateY(0) rotate(360deg);
+          -webkit-transform: translateY(0) rotate(360deg);
+          -o-transform: translateY(0) rotate(360deg);
+          transform: translateY(0) rotate(360deg);
+        }
+      }
+    }
+  }
+  .polygon-2 {
+    right: rem($pol2R);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: rem($pol2PadT);
+    animation: poly2 16s ease-in-out infinite;
+
+    @keyframes poly2 {
+      0% {
+        transform: translate(0);
+      }
+      50% {
+        transform: translate(rem(-300), rem(-450));
+      }
+      100% {
+        transform: translate(0);
+      }
+    }
+
+    img {
+      -webkit-animation: rotating2 4s ease-in-out infinite;
+      -moz-animation: rotating2 4s ease-in-out infinite;
+      -ms-animation: rotating2 4s ease-in-out infinite;
+      -o-animation: rotating2 4s ease-in-out infinite;
+      animation: rotating2 6s ease-in-out infinite;
+
+      @keyframes rotating2 {
+        0% {
+          transform: translateY(rem(0)) rotate(0deg);
+        }
+        50% {
+          transform: translateY(rem(-200)) rotate(180deg);
+        }
+        100% {
+          transform: translateY(0) rotate(360deg);
+        }
+      }
+    }
+  }
+  .polygon-3 {
+    right: rem($pol3R);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: rem($pol3PadT);
+    animation: poly3 10s ease-in-out infinite;
+
+    @keyframes poly3 {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(rem(200));
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    img {
+      -webkit-animation: rotating3 7s ease-in-out infinite;
+      -moz-animation: rotating3 7s ease-in-out infinite;
+      -ms-animation: rotating3 7s ease-in-out infinite;
+      -o-animation: rotating3 7s ease-in-out infinite;
+      animation: rotating3 7s ease-in-out infinite;
+
+      @keyframes rotating3 {
+        0% {
+          transform: translateY(rem(0)) rotate(0deg);
+        }
+        50% {
+          transform: translateY(rem(500)) rotate(180deg);
+        }
+        100% {
+          transform: translateY(0) rotate(360deg);
+        }
+      }
+    }
+  }
+  .polygon-4 {
+    right: rem($pol4R);
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: rem($pol4PadB);
+    animation: poly4 24s ease-in-out infinite;
+
+    @keyframes poly4 {
+      0% {
+        transform: translateX(0);
+      }
+      35% {
+        transform: translateX(rem(-50));
+      }
+      70% {
+        transform: translateX(rem(300));
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    img {
+      -webkit-animation: rotating4 4s ease-in-out infinite;
+      -moz-animation: rotating4 4s ease-in-out infinite;
+      -ms-animation: rotating4 4s ease-in-out infinite;
+      -o-animation: rotating4 4s ease-in-out infinite;
+      animation: rotating4 8s ease-in-out infinite;
+
+      @keyframes rotating4 {
+        0% {
+          transform: translateY(rem(0)) rotate(0deg);
+        }
+        50% {
+          transform: translateY(rem(-250)) rotate(180deg);
+        }
+        100% {
+          transform: translateY(0) rotate(360deg);
+        }
+      }
+    }
+  }
+  .polygon-5 {
+    left: rem($pol5L);
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: rem($pol5PadB);
+    animation: poly5 13s ease-in-out infinite;
+
+    @keyframes poly5 {
+      0% {
+        transform: translateY(400);
+      }
+      50% {
+        transform: translateY(rem(-350));
+      }
+      100% {
+        transform: translateY(400);
+      }
+    }
+
+    img {
+      -webkit-animation: rotating5 4s ease-in-out infinite;
+      -moz-animation: rotating5 4s ease-in-out infinite;
+      -ms-animation: rotating5 4s ease-in-out infinite;
+      -o-animation: rotating5 4s ease-in-out infinite;
+      animation: rotating5 4s ease-in-out infinite;
+
+      @keyframes rotating5 {
+        0% {
+          transform: translateX(0) rotate(0deg);
+        }
+        50% {
+          transform: translateX(rem(-40)) rotate(180deg);
+        }
+        100% {
+          transform: translateX(0) rotate(360deg);
+        }
+      }
+    }
+  }
+  .polygon-6 {
+    right: rem($pol6R);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: rem($pol6PadT);
+    animation: poly6 21s ease-in-out infinite;
+
+    @keyframes poly6 {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(rem(-1350));
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    img {
+      -webkit-animation: rotating6 4s ease-in-out infinite;
+      -moz-animation: rotating6 4s ease-in-out infinite;
+      -ms-animation: rotating6 4s ease-in-out infinite;
+      -o-animation: rotating6 4s ease-in-out infinite;
+      animation: rotating6 4s ease-in-out infinite;
+
+      @keyframes rotating6 {
+        0% {
+          transform: translateY(rem(0)) rotate(0deg);
+        }
+        50% {
+          transform: translateY(rem(-100)) rotate(180deg);
+        }
+        100% {
+          transform: translateY(rem(0)) rotate(360deg);
+        }
+      }
+    }
+  }
+  .polygon-7 {
+    right: rem($pol7R);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: rem($pol7PadT);
+    animation: poly7 26s ease-in-out infinite;
+
+    @keyframes poly7 {
+      0% {
+        transform: translate(0);
+      }
+      50% {
+        transform: translate(rem(-1300), rem(300));
+      }
+      100% {
+        transform: translate(0);
+      }
+    }
+
+    img {
+      -webkit-animation: rotating7 4s ease-in-out infinite;
+      -moz-animation: rotating7 4s ease-in-out infinite;
+      -ms-animation: rotating7 4s ease-in-out infinite;
+      -o-animation: rotating7 4s ease-in-out infinite;
+      animation: rotating7 4s ease-in-out infinite;
+
+      @keyframes rotating7 {
+        0% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(rem(110)) rotate(180deg);
+        }
+        100% {
+          transform: translateY(0) rotate(360deg);
+        }
+      }
+    }
+  }
+  .polygon-8 {
+    right: rem($pol8R);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: rem($pol8PadB);
+    animation: poly8 16s ease-in-out infinite;
+
+    @keyframes poly8 {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(rem(450));
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    img {
+      -webkit-animation: rotating8 4s ease-in-out infinite;
+      -moz-animation: rotating8 4s ease-in-out infinite;
+      -ms-animation: rotating8 4s ease-in-out infinite;
+      -o-animation: rotating8 4s ease-in-out infinite;
+      animation: rotating8 5s ease-in-out infinite;
+
+      @keyframes rotating8 {
+        0% {
+          transform: translateX(0) rotate(0deg);
+        }
+        50% {
+          transform: translateX(rem(50)) rotate(180deg);
+        }
+        100% {
+          transform: translateX(0) rotate(360deg);
+        }
+      }
+    }
+  }
+}

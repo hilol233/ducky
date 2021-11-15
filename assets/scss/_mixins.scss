@@ -1,0 +1,69 @@
+// 611px, 1440px
+$breakpoints-up: (
+  "small": "38.1875em",
+  "large": "90em"
+);
+
+// 610px, 1439px
+$breakpoints-down: (
+  "small": "38.125em",
+  "large": "89.9375em"
+);
+
+@mixin break-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin break-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size )) {
+    @content;
+  }
+}
+
+@mixin animatePolygons() {
+  > img {
+    width: rem(13);
+    height: rem(13);
+    @include break-up(small) {
+      width: rem(15);
+      height: rem(15);
+    }
+
+    -webkit-animation: rotating 1.5s linear infinite;
+    -moz-animation: rotating 1.5s linear infinite;
+    -ms-animation: rotating 1.5s linear infinite;
+    -o-animation: rotating 1.5s linear infinite;
+    animation: rotating 1.5s linear infinite;
+  }
+
+  @-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+}
