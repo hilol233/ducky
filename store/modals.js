@@ -3,13 +3,11 @@ export default {
   state: () => ({
     purchaseFundModalOpen: false,
     featuredItemModalOpen: false,
-
     purchaseModalOpen: false,
     findAccModalOpen: false,
     findAccModalData: {},
     userRobloxModalOpen: false,
     supportFavModalOpen: false
-    // itemOpen: false
   }),
   getters: {
     purchaseFundModalOpen(state) {
@@ -18,7 +16,6 @@ export default {
     featuredItemModalOpen(state) {
       return state.featuredItemModalOpen;
     },
-
     purchaseModalOpen(state) {
       return state.purchaseModalOpen;
     },

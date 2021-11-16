@@ -13,7 +13,7 @@
         </div>
 
         <div class="auth__signup-form">
-          <div class="username" @click="stoppingBlinking">
+          <div class="username">
             <div class="input-div">
               <label for="username">Username</label>
               <input
@@ -21,7 +21,6 @@
                 type="text"
                 placeholder="Your Username Here"
                 v-model="registerForm.username"
-                @click="stoppingBlinking"
               />
             </div>
 
@@ -33,7 +32,7 @@
             </div>
           </div>
 
-          <div class="email" @click="stoppingBlinking">
+          <div class="email">
             <div class="input-div">
               <label for="email">Email</label>
               <input
@@ -41,7 +40,6 @@
                 type="email"
                 placeholder="Your Email Here"
                 v-model="registerForm.email"
-                @click="stoppingBlinking"
               />
             </div>
             <div class="icon">
@@ -53,7 +51,7 @@
           </div>
 
           <div class="passwords">
-            <div class="password" @click="stoppingBlinking">
+            <div class="password">
               <div class="input-div">
                 <label for="password">Password</label>
                 <input
@@ -62,7 +60,6 @@
                   ref="pw"
                   value="FakePassword"
                   v-model="registerForm.password"
-                  @click="stoppingBlinking"
                 />
               </div>
               <div class="hide-img" @click="blink('pw')">
@@ -152,7 +149,7 @@
               </div>
             </div>
 
-            <div class="confirmPassword" @click="stoppingBlinking">
+            <div class="confirmPassword">
               <div class="input-div">
                 <label for="cPassword">Confirm Password</label>
                 <input
@@ -279,7 +276,7 @@
         </div>
 
         <div class="auth__login-form">
-          <div class="username" @click="stoppingBlinking">
+          <div class="username">
             <div class="input-div">
               <label for="username">Username</label>
               <input
@@ -298,7 +295,7 @@
             </div>
           </div>
 
-          <div class="password" @click="stoppingBlinking">
+          <div class="password">
             <div class="input-div">
               <label for="password">Password</label>
               <input
@@ -436,9 +433,7 @@ export default {
   },
   methods: {
     promptLoginModal() {
-      this.$store.commit("auth/CLEAR_INTERVAL");
-      this.$store.commit("auth/AUTH_CLOSE");
-      this.$store.commit("auth/ENABLE_AUTH_BTN");
+      this.$store.commit("auth/AUTH_OPEN_CLOSE");
     },
     close(e) {
       const arr = [];
@@ -448,13 +443,10 @@ export default {
       }
 
       if (arr.includes("auth")) {
-        this.promptLoginModal();
-        // this.$store.commit("auth/AUTH_CLOSE");
+        // this.promptLoginModal();
+        this.$store.commit("auth/AUTH_OPEN_CLOSE");
         // this.$store.commit("auth/ENABLE_AUTH_BTN");
       }
-    },
-    stoppingBlinking() {
-      this.$store.dispatch("auth/stopBlinking");
     },
     clickSignup() {
       this.$axios
@@ -543,8 +535,8 @@ export default {
   left: 0;
   color: #fff;
   z-index: 1004;
-  backdrop-filter: blur(rem(2));
-  background-color: rgba(0, 0, 0, 0.623);
+  // backdrop-filter: blur(rem(2));
+  // background-color: rgba(0, 0, 0, 0.623);
   @include break-up(small) {
     display: flex;
     justify-content: center;

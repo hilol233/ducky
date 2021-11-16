@@ -3,10 +3,7 @@
     <div class="sec-1">
       <div class="money">R$ {{ fundItem.money }}</div>
       <div class="image">
-        <img
-          :src="fundItem.icon_url"
-          alt="money icon"
-        />
+        <img :src="fundItem.icon_url" alt="money icon" />
       </div>
     </div>
     <div class="sec-2">
@@ -39,8 +36,8 @@ export default {
       this.$store.commit("modals/SET_FIND_ACC_MODAL_DATA", this.fundItem);
       this.$store.commit("modals/OPEN_FEATURED_ITEM_MODAL");
       this.$store.commit("modals/OPEN_FIND_ACC_MODAL");
-    }
-  }
+    },
+  },
 };
 </script>
 

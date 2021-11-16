@@ -102,13 +102,7 @@
       <!-- Balance Counting====== -->
       <div class="navbar__right-side">
         <div class="navbar__auth" v-if="!isLoggedIn">
-          <button
-            class="login"
-            :disabled="isAuthBtnDisabled"
-            @click="promptLoginModal"
-          >
-            Login
-          </button>
+          <button class="login" @click="promptLoginModal">Login</button>
         </div>
         <div class="navbar__balance" v-else>
           <div class="title">Balance</div>
@@ -151,9 +145,9 @@ export default {
     isLoggedIn() {
       return this.$store.getters["auth/isLoggedIn"];
     },
-    isAuthBtnDisabled() {
-      return this.$store.getters["auth/isAuthBtnDisabled"];
-    },
+    // isAuthBtnDisabled() {
+    //   return this.$store.getters["auth/isAuthBtnDisabled"];
+    // },
   },
   methods: {
     logoutClick() {
@@ -173,8 +167,7 @@ export default {
         this.$route.path === "/subscription" ||
         this.$route.path === "/terms-of-service"
       ) {
-        this.$store.dispatch("auth/startBlinking");
-        // this.$store.commit("auth/AUTH_OPEN_CLOSE");
+        this.$store.commit("auth/AUTH_OPEN_CLOSE");
         this.$store.commit("auth/OPEN_LOGIN");
       }
     },
@@ -455,6 +448,7 @@ export default {
       background: none;
       border: none;
       outline: none;
+      cursor: pointer;
     }
   }
 }

@@ -1,11 +1,11 @@
 <template>
-  <transition name="fimodal">
-    <div class="f-item" @click="close" v-if="featuredItemModalOpen">
-      <FindAcc v-if="findAccModalOpen" />
-      <AskUserRoblox v-if="userRobloxModalOpen" />
-      <SupportFav v-if="supportFavModalOpen" />
-    </div>
-  </transition>
+  <!-- <transition name="fimodal"> -->
+  <div class="f-item" @click="close" v-if="featuredItemModalOpen">
+    <FindAcc v-if="findAccModalOpen" />
+    <AskUserRoblox v-if="userRobloxModalOpen" />
+    <SupportFav v-if="supportFavModalOpen" />
+  </div>
+  <!-- </transition> -->
 </template>
 
 <script>
@@ -55,8 +55,8 @@ export default {
   height: 100vh;
   color: #fff;
   display: flex;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(rem(2));
+  // background-color: rgba(0, 0, 0, 0.5);
+  // backdrop-filter: blur(rem(2));
   z-index: 1003;
   @include break-up(small) {
     justify-content: center;
@@ -66,16 +66,16 @@ export default {
   }
 }
 
-.fimodal-enter,
-.fimodal-leave-to {
-  opacity: 0;
-}
-.fimodal-enter-active,
-.fimodal-leave-active {
-  transition: opacity 0.17s ease-in-out;
-}
-.fimodal-leave,
-.fimodal-enter-to {
-  opacity: 1;
-}
+// .fimodal-enter,
+// .fimodal-leave-to {
+//   opacity: 0;
+// }
+// .fimodal-enter-active,
+// .fimodal-leave-active {
+//   transition: opacity 0.17s ease-in-out;
+// }
+// .fimodal-leave,
+// .fimodal-enter-to {
+//   opacity: 1;
+// }
 </style>

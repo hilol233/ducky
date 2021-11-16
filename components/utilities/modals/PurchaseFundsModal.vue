@@ -1,42 +1,39 @@
 <template>
-  <transition name="pmodal">
-    <div class="purchase-modal" @click="close" v-if="purchaseFundModalOpen">
-      <div class="purchase-modal__inside" v-if="purchaseModal">
-        <button class="purchase-modal__close-btn" @click="closeModal">
-          <img src="~assets/icons/close-icon.svg" alt="close" />
-        </button>
+  <div class="purchase-modal" @click="close">
+    <div class="purchase-modal__inside" v-if="purchaseModal">
+      <button class="purchase-modal__close-btn" @click="closeModal">
+        <img src="~assets/icons/close-icon.svg" alt="close" />
+      </button>
 
-        <div class="purchase-modal__title-desc">
-          <div class="title">Purchase Funds</div>
-          <div class="desc">
-            <div class="title">Available</div>
-            <div class="content">R$ 999.9K</div>
-          </div>
+      <div class="purchase-modal__title-desc">
+        <div class="title">Purchase Funds</div>
+        <div class="desc">
+          <div class="title">Available</div>
+          <div class="content">R$ 999.9K</div>
         </div>
-
-        <!-- Money Icon -->
-        <img
-          src="~assets/icons/money-icon-3.svg"
-          alt="money"
-          class="money-icon"
-        />
-
-        <!-- Custom Amount -->
-        <div class="purchase-modal__custom-amount">
-          <div class="title">Type in a custom amount</div>
-          <div class="amount-input">
-            <input type="text" placeholder="Amount in Robux" />
-          </div>
-          <div class="worth">Worth $0.0</div>
-        </div>
-
-        <!-- Buy Button -->
-        <button class="purchase-modal__buy-btn" @click="purchase">
-          Buy Now
-        </button>
       </div>
+
+      <!-- Money Icon -->
+      <img
+        src="~assets/icons/money-icon-3.svg"
+        alt="money"
+        class="money-icon"
+      />
+
+      <!-- Custom Amount -->
+      <div class="purchase-modal__custom-amount">
+        <div class="title">Type in a custom amount</div>
+        <div class="amount-input">
+          <input type="text" placeholder="Amount in Robux" />
+        </div>
+        <div class="worth">Worth $0.0</div>
+      </div>
+
+      <!-- Buy Button -->
+      <button class="purchase-modal__buy-btn" @click="purchase">Buy Now</button>
     </div>
-  </transition>
+  </div>
+  <!-- </transition> -->
 </template>
 
 <script>
@@ -83,19 +80,6 @@ export default {
 @ Mobile First Design
  */
 
-.pmodal-enter,
-.pmodal-leave-to {
-  opacity: 0;
-}
-.pmodal-enter-active,
-.pmodal-leave-active {
-  transition: opacity 0.17s ease-in-out;
-}
-.pmodal-leave,
-.pmodal-enter-to {
-  opacity: 1;
-}
-
 .purchase-modal {
   position: fixed;
   top: 0%;
@@ -104,8 +88,6 @@ export default {
   height: 100vh;
   color: #fff;
   display: flex;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(rem(2));
   z-index: 1003;
   @include break-up(small) {
     justify-content: center;
@@ -122,6 +104,7 @@ export default {
     width: 100%;
     height: 100%;
     background-color: $purple-dark;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     @include break-up(small) {
       width: rem(700);
       height: auto;

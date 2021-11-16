@@ -89,8 +89,7 @@ export default {
   },
   methods: {
     promptSignupModal() {
-      this.$store.dispatch("auth/startBlinking");
-      // this.$store.commit("auth/AUTH_OPEN_CLOSE");
+      this.$store.commit("auth/AUTH_OPEN_CLOSE");
       this.$store.commit("auth/OPEN_SIGNUP");
     },
     closeDropdown() {

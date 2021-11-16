@@ -7,9 +7,13 @@
 
     <div class="user-roblox__item-info">
       <div class="details">
-        <h1 class="name">Item Name : {{ findAccModalData.name }} </h1>
-        <div class="desc">Item Description : {{ findAccModalData.description }} </div>
-        <div v-if="findAccModalData.sold_by" class="username">Sold By <span>{{ findAccModalData.sold_by }}</span></div>
+        <h1 class="name">Item Name : {{ findAccModalData.name }}</h1>
+        <div class="desc">
+          Item Description : {{ findAccModalData.description }}
+        </div>
+        <div v-if="findAccModalData.sold_by" class="username">
+          Sold By <span>{{ findAccModalData.sold_by }}</span>
+        </div>
         <div class="rap-text">Rap</div>
         <div class="rap-amount">99.9K</div>
       </div>
@@ -38,7 +42,7 @@ export default {
     findAccModalData() {
       return this.$store.getters["modals/findAccModalData"];
     },
-    usernameChecked () {
+    usernameChecked() {
       return this.$store.getters["auth/usernameChecked"];
     },
   },
@@ -92,6 +96,7 @@ export default {
   height: 100%;
   color: #fff;
   background-color: $purple-dark;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   @include break-up(small) {
     width: rem(700);
     height: auto;

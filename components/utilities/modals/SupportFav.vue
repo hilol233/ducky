@@ -324,6 +324,7 @@ export default {
   height: 100%;
   color: #fff;
   background-color: $purple-dark;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   @include break-up(small) {
     width: rem(700);
     height: auto;
