@@ -206,6 +206,7 @@
             </svg>
           </span>
         </button>
+        <div ref="paypal"></div>
       </div>
     </div>
 
@@ -225,6 +226,17 @@
 
 <script>
 export default {
+  data: function () {
+    return {
+      loaded: false,
+      paidFor: false,
+      product: {
+        price: 777.77,
+        description: "leg lamp from that one movie",
+        img: "./assets/lamp.jpg",
+      },
+    };
+  },
   data() {
     return {
       isContinued: false,
@@ -243,6 +255,36 @@ export default {
     },
   },
   methods: {
+    setLoaded: function () {
+      this.loaded = true;
+      window.paypal
+        .Buttons({
+          createOrder: (data, actions) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  // description: this.product.description,
+                  amount: {
+                    currency_code: "USD",
+                    value: "10"
+               
+                  },
+                },
+              ],
+            });
+          },
+          onApprove: async (data, actions) => {
+            const order = await actions.order.capture();
+            this.data;
+            this.paidFor = true;
+            console.log(order);
+          },
+          onError: (err) => {
+            console.log(err);
+          },
+        })
+        .render(this.$refs.paypal);
+    },
     closeModal() {
       this.$store.commit("modals/OPEN_FEATURED_ITEM_MODAL");
       this.$store.commit("modals/CLOSE_FEAT_ITEM_MODAL");
@@ -250,6 +292,13 @@ export default {
     continuePay() {
       this.isContinued = true;
       this.timerFunc();
+
+      // Paypal sdk
+      const script = document.createElement("script");
+      script.src =
+        "https://www.paypal.com/sdk/js?client-id=ATVKd9dDUZuvAQk4mrpEKbf2PaKhj3mmTGHKWr51NSsU1VMpUZzF8ODubz0k4VZa_o7FCi9RyitnKRhv&disable-funding=credit";
+      script.addEventListener("load", this.setLoaded);
+      document.body.appendChild(script);
     },
     makePayment(result) {
       if (result === "error") {

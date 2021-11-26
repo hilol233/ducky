@@ -1,5 +1,4 @@
 export default function(to, from, savedPosition) {
-  console.log("this is the hash", to.hash);
   if (to.hash) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {

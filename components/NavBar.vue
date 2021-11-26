@@ -1,5 +1,19 @@
 <template>
   <nav class="navbar" @click="clickOutside($event)">
+    <!-- Logout Alert Modal -->
+    <transition name="alert">
+      <LogoutAlert class="navbar__l-alert" v-if="logoutAlert" />
+    </transition>
+
+    <transition name="back">
+      <div
+        class="navbar__black-back"
+        v-if="logoutAlert"
+        @click="alertBack"
+      ></div>
+    </transition>
+    <!-- /Logout Alert Modal -->
+
     <div class="navbar__navbar-obj">
       <nuxt-link class="logo-btn" to="/"
         ><img src="../assets/logo.svg" alt="logo"
@@ -145,16 +159,23 @@ export default {
     isLoggedIn() {
       return this.$store.getters["auth/isLoggedIn"];
     },
+    logoutAlert() {
+      return this.$store.getters["auth/logoutAlert"];
+    },
     // isAuthBtnDisabled() {
     //   return this.$store.getters["auth/isAuthBtnDisabled"];
     // },
   },
   methods: {
     logoutClick() {
-      localStorage.removeItem("user");
-      localStorage.removeItem("token");
-      this.$store.commit("auth/LOGIN");
-      this.$router.push("/");
+      console.log("logout btn clicked");
+      this.$store.commit("auth/LOGOUT_ALERT");
+
+      // const logoutStatus = window.confirm("Are you sure to logout");
+      // console.log("status", logoutStatus);
+    },
+    alertBack() {
+      this.$store.commit("auth/LOGOUT_ALERT");
     },
     openHamburger() {
       this.$store.commit("TOGGLE_HAMBURGER");
@@ -196,6 +217,10 @@ export default {
 @import "~assets/scss/variables";
 @import "~assets/scss/mixins";
 
+/*
+@ PC first design
+*/
+
 .invisible {
   transform: translateY(calc(-100% - rem(60)));
 }
@@ -213,6 +238,62 @@ export default {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   @include break-down(small) {
     height: rem(60);
+  }
+
+  &__black-back {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    // backdrop-filter: blur(rem(5));
+    background-color: rgba(0, 0, 0, 0.623);
+    z-index: 5000;
+  }
+
+  &__l-alert {
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    // transform: translateY(calc(-100% - 10vh));
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+      rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    z-index: 5001;
+  }
+
+  /***** Modal's black background Transition *****/
+  .back-enter,
+  .back-leave-to {
+    opacity: 0;
+    // transform: translateY(-10%);
+  }
+  .back-enter-active,
+  .back-leave-active {
+    transition: all 0.3s ease-in-out;
+  }
+  .back-leave,
+  .back-enter-to {
+    opacity: 1;
+    // transform: translateY(0);
+  }
+
+  /***** Modal's Transition *****/
+  .alert-enter,
+  .alert-leave-to {
+    opacity: 0;
+    transform: translateY(calc(-100% - 10vh));
+  }
+  .alert-enter-active,
+  .alert-leave-active {
+    transition: all 0.3s ease-in-out;
+  }
+  .alert-leave,
+  .alert-enter-to {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   &__navbar-obj {

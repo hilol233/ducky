@@ -64,8 +64,7 @@ export default {
   build: {},
 
   axios: {
-    baseURL: "https://roblox-dominus.herokuapp.com"
-    // baseURL: "http://localhost:3000"
+    baseURL: "http://localhost:3000"
   },
 
   // nuxtjs toast config
